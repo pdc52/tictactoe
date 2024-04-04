@@ -1,7 +1,5 @@
 package com.example.tictactoe.data
 
-import androidx.annotation.VisibleForTesting
-
 enum class SquareState {
     PLAYED_X,
     PLAYED_O,
@@ -16,14 +14,14 @@ enum class PlayResponse {
 
 // Could be modified to be row x col instead of n x n,
 // But then would need to rethink diagonal win behavior
-class TicTacToeBoard(private val size: Int) {
-    private val board:Array<Array<SquareState>> = Array(size) { Array(size) { SquareState.UNPLAYED } }
+class TicTacToeBoard(val size: Int) {
+    val board:Array<Array<SquareState>> = Array(size) { Array(size) { SquareState.UNPLAYED } }
 
-    private fun getSquareState(row: Int, column: Int): SquareState {
+    fun getSquareState(row: Int, column: Int): SquareState {
         return board[row][column]
     }
 
-    private fun setSquareState(row: Int, column: Int, state: SquareState) {
+    fun setSquareState(row: Int, column: Int, state: SquareState) {
         board[row][column] = state
     }
 
